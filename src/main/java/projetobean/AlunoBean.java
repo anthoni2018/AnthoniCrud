@@ -88,4 +88,5 @@ public class AlunoBean implements Serializable {
 	public AlunoBean() {
 		aluno = new Aluno();
 	}
+	
 }
