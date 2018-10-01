@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Professor</title>
+</h:head>
+
+<h:body>
+	<p:messages />
+	
+	<h:form>
+		<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Professor" />
+			</f:facet>
+			
+    		<p:outputLabel value="Idprofessor: " for="nomeField"  />
+    		<p:inputText id="nomeField" value="#{professorBean.professor.idProfessor}"
+        		label="IdProfessor" style="width:350px" />
+
+    		<p:outputLabel value="Nome: " for="itNomeProfessorField" />
+    		<p:inputText id="itNomeProfessorField" value="#{professorBean.professor.nome}"
+        		label="Nome" />
+       	 
+    		<p:outputLabel value="Idade: " for="itIdadeProfessorField" />
+    		<p:inputText id="itIdadeProfessorField" value="#{professorBean.professor.idade}"
+        		label="Idade" />
+       	 
+    		<p:outputLabel value="Descrição: " for="itDescriçãoProfessorField" />
+    		<p:inputText id="itDescriçãoProfessorField" value="#{professorBean.professor.descricao}"
+        		label="Descrição" />
+
+    <p:commandButton id="btnNovo" value="Novo"
+				action="#{professorBean.adicionar()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{professorBean.remove()}" ajax="false" />
+		</p:panelGrid>
+
+    	<p:dataTable id="professorEsTable" border="1" var="prof"
+        	value="#{professorBean.professores.values()}">
+        	<f:facet name="header">Professores</f:facet>
+        	<p:column>
+            	<f:facet name="header">IdProfessor</f:facet>
+            	<h:outputText value="#{prof.idProfessor}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Nome</f:facet>
+            	<h:outputText value="#{prof.nome}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Idade</f:facet>
+            	<h:outputText value="#{prof.idade}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Descrição</f:facet>
+            	<h:outputText value="#{prof.descricao}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Opções</f:facet>
+
+            	<p:commandButton id="botaoRemover" value="remover" ajax="false"
+            	action="#{usuarioBean.remove(entidade)}"></p:commandButton>
+	
+        
+
+        	</p:column>
+    	</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>
