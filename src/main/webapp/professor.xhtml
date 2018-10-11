@@ -5,14 +5,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Professor</title>
+	<title>Gerenciador de Professores</title>
 </h:head>
 
 <h:body>
-	<p:messages />
-	
+<p:messages />
 	<h:form>
-		<p:panelGrid columns="2" >
+	<p:panelGrid columns="2" >
 			<f:facet name="caption">
 				<h:outputText value="Filtros" />
 			</f:facet>
@@ -20,21 +19,21 @@
 				<h:outputText value="Professor" />
 			</f:facet>
 			
-    		<p:outputLabel value="Idprofessor: " for="nomeField"  />
-    		<p:inputText id="nomeField" value="#{professorBean.professor.idProfessor}"
-        		label="IdProfessor" style="width:350px" />
+    	<p:outputLabel value="Idprofessor: " for="nomeField"  />
+    	<p:inputText id="nomeField" value="#{professorBean.professor.idProfessor}"
+        	label="IdProfessor" style="width:350px" />
 
-    		<p:outputLabel value="Nome: " for="itNomeProfessorField" />
-    		<p:inputText id="itNomeProfessorField" value="#{professorBean.professor.nome}"
-        		label="Nome" />
+    	<p:outputLabel value="Nome: " for="itNomeProfessorField" />
+    	<p:inputText id="itNomeProfessorField" value="#{professorBean.professor.nome}"
+        	label="Nome" />
        	 
-    		<p:outputLabel value="Idade: " for="itIdadeProfessorField" />
-    		<p:inputText id="itIdadeProfessorField" value="#{professorBean.professor.idade}"
-        		label="Idade" />
+    	<p:outputLabel value="Idade: " for="itIdadeProfessorField" />
+    	<p:inputText id="itIdadeProfessorField" value="#{professorBean.professor.idade}"
+        	label="Idade" />
        	 
-    		<p:outputLabel value="Descrição: " for="itDescriçãoProfessorField" />
-    		<p:inputText id="itDescriçãoProfessorField" value="#{professorBean.professor.descricao}"
-        		label="Descrição" />
+    	<p:outputLabel value="Descrição: " for="itDescriçãoProfessorField" />
+    	<p:inputText id="itDescriçãoProfessorField" value="#{professorBean.professor.descricao}"
+        	label="Descrição" />
 
     <p:commandButton id="btnNovo" value="Novo"
 				action="#{professorBean.adicionar()}" ajax="false" />
