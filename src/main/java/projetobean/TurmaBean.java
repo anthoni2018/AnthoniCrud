@@ -4,11 +4,10 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import projetoDao.DaoDis;
 import projetoDao.DaoTur;
-import projetoEntidades.Disciplina;
 import projetoEntidades.Turma;
 import projetoServicos.PersistenciaDacException;
 
