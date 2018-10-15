@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Gerenciador de Disciplinas</title>
+</h:head>
+
+<h:body>
+	<p:messages />
+	
+	<h:form>
+	<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Disciplina" />
+			</f:facet>
+	
+    	<p:outputLabel value="IdDisciplina: "for="nomeField"  />
+    	<p:inputText id="nomeField"  value="#{disciplinaBean.disciplina.idDisciplina}"
+        	label="IdDisciplina" style="width:350px" />
+
+    	<p:outputLabel value="Nome: " for="itNomeDisciplinaField" />
+    	<p:inputText id="itNomeDisciplinaField" value="#{disciplinaBean.disciplina.nome}"
+        	label="Nome" />
+       	 
+    	<p:outputLabel value="Professor: " for="itProfessorDisciplinaField" />
+    	<p:inputText id="itProfessorDisciplinaField" value="#{disciplinaBean.disciplina.professor}"
+        	label="Professor" />
+        	
+        	<p:commandButton id="btnNovo" value="Novo"
+				action="#{disciplinaBean.adicionarDisciplina()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{disciplinaBean.removerDisciplina()}" ajax="false" />
+		</p:panelGrid>
+
+
+    	<p:dataTable id="disciplinaEsTable" border="1" var="dis"
+        	value="#{disciplinaBean.disciplina}">
+        	<f:facet name="header">Disciplinas</f:facet>
+        	<p:column>
+            	<f:facet name="header">Id Disciplina</f:facet>
+            	<h:outputText value="#{dis.idDisciplina}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Nome</f:facet>
+            	<h:outputText value="#{dis.nome}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Professor</f:facet>
+            	<h:outputText value="#{dis.professor}" />
+        	</p:column>
+        	
+            	<f:facet name="header">Opções</f:facet>
+            	<p:commandButton id="botaoRemover" value="remover" ajax="false"
+            	action="#{disciplinaBean.removerDisciplina(entidade)}"></p:commandButton>
+            	
+
+        	</p:column>
+    	</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>

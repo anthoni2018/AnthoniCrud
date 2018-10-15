@@ -27,25 +27,33 @@
     	<p:inputText id="itNomeProfessorField" value="#{professorBean.professor.nome}"
         	label="Nome" />
        	 
-    	<p:outputLabel value="Idade: " for="itIdadeProfessorField" />
-    	<p:inputText id="itIdadeProfessorField" value="#{professorBean.professor.idade}"
-        	label="Idade" />
+    	<p:outputLabel value="Disciplina: " for="itDisciplinaProfessorField" />
+    	<p:inputText id="itDisciplinaProfessorField" value="#{professorBean.professor.disciplina}"
+        	label="Disciplina" />
        	 
-    	<p:outputLabel value="Descrição: " for="itDescriçãoProfessorField" />
-    	<p:inputText id="itDescriçãoProfessorField" value="#{professorBean.professor.descricao}"
-        	label="Descrição" />
+    	<p:outputLabel value="Professor: " for="itProfessorProfessorField" />
+    	<p:inputText id="itProfessorProfessorField" value="#{professorBean.professor.professor}"
+        	label="Professor" />
+        	
+        <p:outputLabel value="Turma: " for="itTurmaProfessorField" />
+    	<p:inputText id="itTurmaProfessorField" value="#{professorBean.professor.turma}"
+        	label="Turma" />
+        	
+        <p:outputLabel value="Aluno: " for="itAlunoProfessorField" />
+    	<p:inputText id="itAlunoProfessorField" value="#{professorBean.professor.aluno}"
+        	label="Aluno" />
 
     <p:commandButton id="btnNovo" value="Novo"
-				action="#{professorBean.adicionar()}" ajax="false" />
+				action="#{professorBean.adicionarProfessor()}" ajax="false" />
 			<p:commandButton id="btnLimpar" value="Limpar"
-				action="#{professorBean.remove()}" ajax="false" />
+				action="#{professorBean.removerProfessor()}" ajax="false" />
 		</p:panelGrid>
 
     	<p:dataTable id="professorEsTable" border="1" var="prof"
-        	value="#{professorBean.professores.values()}">
+        	value="#{professorBean.professor}">
         	<f:facet name="header">Professores</f:facet>
         	<p:column>
-            	<f:facet name="header">IdProfessor</f:facet>
+            	<f:facet name="header">Id Professor</f:facet>
             	<h:outputText value="#{prof.idProfessor}" />
         	</p:column>
         	<p:column>
@@ -53,18 +61,26 @@
             	<h:outputText value="#{prof.nome}" />
         	</p:column>
         	<p:column>
-            	<f:facet name="header">Idade</f:facet>
-            	<h:outputText value="#{prof.idade}" />
+            	<f:facet name="header">Disciplina</f:facet>
+            	<h:outputText value="#{prof.disciplina}" />
         	</p:column>
         	<p:column>
-            	<f:facet name="header">Descrição</f:facet>
-            	<h:outputText value="#{prof.descricao}" />
+            	<f:facet name="header">Professor</f:facet>
+            	<h:outputText value="#{prof.professor}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Turma</f:facet>
+            	<h:outputText value="#{prof.turma}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Aluno</f:facet>
+            	<h:outputText value="#{prof.aluno}" />
         	</p:column>
         	<p:column>
             	<f:facet name="header">Opções</f:facet>
 
             	<p:commandButton id="botaoRemover" value="remover" ajax="false"
-            	action="#{usuarioBean.remove(entidade)}"></p:commandButton>
+            	action="#{professorBean.removerProfessor(entidade)}"></p:commandButton>
 	
         
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Gerenciador de Turmas</title>
+</h:head>
+
+<h:body>
+	<p:messages />
+	
+	<h:form>
+	<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Turma" />
+			</f:facet>
+	
+    	<p:outputLabel value="IdTurma: "for="nomeField"  />
+    	<p:inputText id="nomeField"  value="#{turmaBean.turma.idTurma}"
+        	label="IdTurma" style="width:350px" />
+
+    	<p:outputLabel value="Disciplina: " for="itDisciplinaTurmaField" />
+    	<p:inputText id="itDisciplinaTurmaField" value="#{turmaBean.turma.disciplina}"
+        	label="Disciplina" />
+       	 
+    	<p:outputLabel value="Professor: " for="itProfessorProfessorField" />
+    	<p:inputText id="itProfessorTurmaField" value="#{turmaBean.turma.professor}"
+        	label="Professor" />
+        	
+        	<p:commandButton id="btnNovo" value="Novo"
+				action="#{turmaBean.adicionarTurma()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{turmaBean.removerTurma()}" ajax="false" />
+		</p:panelGrid>
+
+
+    	<p:dataTable id="turmaEsTable" border="1" var="tur"
+        	value="#{turmaBean.turma}">
+        	<f:facet name="header">Turmas</f:facet>
+        	<p:column>
+            	<f:facet name="header">Id Turma</f:facet>
+            	<h:outputText value="#{tur.idTurma}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Disciplina</f:facet>
+            	<h:outputText value="#{tur.disciplina}" />
+        	</p:column>
+        	<p:column>
+            	<f:facet name="header">Professor</f:facet>
+            	<h:outputText value="#{tur.professor}" />
+        	</p:column>
+        	
+            	<f:facet name="header">Opções</f:facet>
+            	<p:commandButton id="botaoRemover" value="remover" ajax="false"
+            	action="#{turmaBean.removerTurma(entidade)}"></p:commandButton>
+            	
+
+        	</p:column>
+    	</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>
