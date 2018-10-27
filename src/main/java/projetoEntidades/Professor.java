@@ -1,78 +1,83 @@
 package projetoEntidades;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.SequenceGenerator;
+
+import projetoEntidades.entites.Identificavel;
 
 @Entity
-@Table(name = "professor")
-public class Professor {
-
+public class Professor implements Identificavel {
+	
 	@Id
-	@Column(name = "id_prof")
-	private Integer idProfessor;
-
+	@GeneratedValue(generator = "professor_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "professor_seq")
+	
+	private Long id;
 	private String nome;
-	private Integer disciplina;
-	private String professor;
-	private String turma;
-	private String aluno;
-
-	public String getAluno() {
-		return aluno;
+	private String cpf;
+	private String nascimento;
+	private String username;
+	private String password;
+	
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAluno(String aluno) {
-		this.aluno = aluno;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getProfessor() {
-		return professor;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setProfessor(String professor) {
-		this.professor = professor;
+	public void setPassowrd(String password) {
+		this.password = password;
 	}
 
-	public String getTurma() {
-		return turma;
+	public Long getId() {
+		return id;
 	}
-
-	public void setTurma(String turma) {
-		this.turma = turma;
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
-
-	public Integer getDisciplina() {
-		return disciplina;
-	}
-
-	public void setDisciplina(Integer disciplina) {
-		this.disciplina = disciplina;
-	}
-
-	public Integer getIdProfessor() {
-		return idProfessor;
-	}
-
-	public void setIdProfessor(Integer idProfessor) {
-		this.idProfessor = idProfessor;
-	}
-
-	public String getNome() {
+	
+	public String getnome() {
 		return nome;
 	}
-
-	public void setNome(String nome) {
+	
+	public void setnome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public String getNascimento() {
+		return nascimento;
+	}
+	
+	public void setNascimento(String nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public Professor() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return "Professor [idProfessor=" + idProfessor + ", nome=" + nome + ", disciplina=" + disciplina
-				+ ", professor=" + professor + ", turma=" + turma + ", aluno=" + aluno + "]";
+		return "Professor [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", nascimento="
+				+ nascimento + "]";
 	}
-	
-	
-	
 }
