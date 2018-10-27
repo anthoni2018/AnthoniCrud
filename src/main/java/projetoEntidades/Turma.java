@@ -1,44 +1,45 @@
 package projetoEntidades;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.SequenceGenerator;
+
+import projetoEntidades.entites.Identificavel;
 
 @Entity
-@Table(name = "turma")
-public class Turma {
-
-	@Id
-	@Column(name = "id_tur")
-	private Integer idTurma;
-
-	private String professor;
-	private Integer disciplina;
+public class Turma implements Identificavel {
 	
-	public Integer getIdTurma() {
-		return idTurma;
+	@Id
+	@GeneratedValue(generator = "exercicio_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "exercicio_seq")
+	private Long id;
+	private String nomeTurma;
+	
+	public Long getId() {
+		return id;
 	}
-	public void setIdTurma(Integer idTurma) {
-		this.idTurma = idTurma;
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
-	public String getProfessor() {
-		return professor;
+	
+	public String getNomeTurma() {
+		return nomeTurma;
 	}
-	public void setProfessor(String professor) {
-		this.professor = professor;
+	
+	public void setNomeTurma(String nomeTurma) {
+		this.nomeTurma = nomeTurma;
 	}
-	public Integer getDisciplina() {
-		return disciplina;
+
+	public Turma() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void setDisciplina(Integer disciplina) {
-		this.disciplina = disciplina;
-	}
+
 	@Override
 	public String toString() {
-		return "Turma [idTurma=" + idTurma + ", professor=" + professor + ", disciplina=" + disciplina + "]";
+		return "Turma [id=" + id + ", nomeTurma=" + nomeTurma + "]";
 	}
-
-	
-
 }
